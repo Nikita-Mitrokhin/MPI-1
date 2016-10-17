@@ -1,0 +1,13 @@
+﻿  PII.cpp
+c:\users\nikita\documents\visual studio 2015\projects\pii\pii\pii.cpp(66): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+PII.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/OPT:LBR"
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Send@24 в функции _main
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Recv@28 в функции _main
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Reduce@28 в функции _main
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Comm_size@8 в функции _main
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Comm_rank@8 в функции _main
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Wtime@0 в функции _main
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Init@8 в функции _main
+PII.obj : error LNK2019: ссылка на неразрешенный внешний символ _MPI_Finalize@0 в функции _main
+C:\Program Files\Microsoft HPC Pack 2008 SDK\Lib\amd64\msmpi.lib : warning LNK4272: тип компьютера библиотеки "x64" конфликтует с типом целевого компьютера "X86"
+c:\users\nikita\documents\visual studio 2015\Projects\PII\Debug\PII.exe : fatal error LNK1120: неразрешенных внешних элементов: 8

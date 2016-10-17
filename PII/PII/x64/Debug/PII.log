@@ -1,0 +1,5 @@
+﻿  PII.cpp
+c:\users\nikita\documents\visual studio 2015\projects\pii\pii\pii.cpp(48): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+PII.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/OPT:LBR"
+  PII.vcxproj -> C:\Users\Nikita\Documents\Visual Studio 2015\Projects\PII\x64\Debug\PII.exe
+  PII.vcxproj -> C:\Users\Nikita\Documents\Visual Studio 2015\Projects\PII\x64\Debug\PII.pdb (Full PDB)
