@@ -31,11 +31,18 @@ int main(int argc, char* argv[])
 	MPI_Comm_rank(MPI_COMM_WORLD, &ProcRank);
 
 	int  n, m, a, b;
-	n = 200;
-	m = 200;
+	n = 100;
+	m = 100;
 	a = 1;
 	b = 10;
-
+	
+	if (argc >= 3) {
+		n = atoi(argv[1]);
+		m = atoi(argv[2]);
+	}
+	else {
+		printf("Error with argv\n");
+	}
 
 	int l = n * m;
 
@@ -65,14 +72,17 @@ int main(int argc, char* argv[])
 		dt = t2 - t1;
 		printf("\nSUM  =  %d", Sum);
 		printf("\nTIME = %f\n", dt);
+
 		t1 = MPI_Wtime();
 		for (int i = 1; i < ProcNum; i++)
 			MPI_Send(mat + (i * (l / ProcNum)), l / ProcNum, MPI_INT, i, 0, MPI_COMM_WORLD);
+
 		for (int i = 0; i < l / ProcNum; i++)
 		{
 			arr[i] = mat[i];
 		}
 		Sum = 0;
+
 		for (int i = (l - (l % ProcNum)); i < l; i++)
 			Sum1 += mat[i];
 
@@ -83,14 +93,14 @@ int main(int argc, char* argv[])
 
 
 
-	if (ProcRank != 0) 
+	if (ProcRank != 0)
 		MPI_Recv(arr, l / ProcNum, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
 
-		int cSum, Sum;
-		cSum = 0;
-		for (int i = 0; i < l / ProcNum; i++)
-			cSum += arr[i];
-	
+	int cSum, Sum;
+	cSum = 0;
+	for (int i = 0; i < l / ProcNum; i++)
+		cSum += arr[i];
+
 	MPI_Reduce(&cSum, &Sum, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
 	if (ProcRank == 0)
@@ -102,11 +112,10 @@ int main(int argc, char* argv[])
 
 	if (ProcRank == 0)
 	{
-		
 		cout << "\nParallel version";
-		printf("\nSUM  =  %d", Sum);
+		printf("\nSUM  = %d", Sum);
 		dt = t2 - t1;
-	printf("\nTIME = %f\n", dt);
+		printf("\nTIME = %f\n", dt);
 	}
 
 
